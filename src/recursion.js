@@ -44,10 +44,6 @@ var isEven = function(n) {
 // sumBelow(10); // 45
 // sumBelow(7); // 21
 var sumBelow = function(n, output = 0) {
-  if(Array.isArray(n)){
-    output += array[0]; //adds first element of array to output.
-    return sumBelow(array.slice(1), output)
-  }
   if (n <= 0){
     return output;
   }
