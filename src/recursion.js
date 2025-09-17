@@ -30,7 +30,29 @@ var sumBelow = function(n) {
 
 // 6. Get the integers in range (x, y).
 // Example:  range(2, 9);  // [3, 4, 5, 6, 7, 8]
-var range = function(x, y) {
+var range = function(x, y, output = []) {
+  //base -when does loop stop?
+  if ((y - x) === 0){
+    return output;
+  }
+  if ((x - y) === 0){
+    return output;
+  }
+  if ((x - 1) === y) {
+    return output;    
+  }
+  if ((x + 1) === y) {
+       return output;
+      }
+  //recursion= what do we want to get out of the function inputs?- return integers BETWEEN the two objects.
+    if (x < y){
+    output.push(x + 1);
+    return range(x + 1, y, output);
+    } else {
+      output.push(x - 1);
+    return range(x - 1, y, output);
+    }
+    return range(x + 1, y, output);
 };
 
 // 7. Compute the exponent of a number.
