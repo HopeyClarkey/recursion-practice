@@ -57,6 +57,10 @@ var isEven = function(n) {
 // sumBelow(7); // 21
 var sumBelow = function(n, output = 0) {
   //base case
+  if(n < 0){
+  output += n + 1;
+    return sumBelow(n + 1, output);
+  }
   if (n <= 0){
     return output;
   }
