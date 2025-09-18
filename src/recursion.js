@@ -38,12 +38,25 @@ var arraySum = function(array, output = 0) {
 
 // 4. Check if a number is even.
 var isEven = function(n) {
+  //base cases
+  if (n < 0){   //accounting for negative numbers below 0
+    return isEven(n + 2); //call function by ADDING two
+  }
+  if (n <= 0){  //if land on 0, return true
+    return true;
+  }
+  if (n === 1){ //if land on 1, return false!
+  return false;
+  }
+  //recursion(main), subtract 2 over and over until reach 1 or 0
+  return isEven(n -2); 
 };
 
 // 5. Sum all integers below a given integer.
 // sumBelow(10); // 45
 // sumBelow(7); // 21
 var sumBelow = function(n, output = 0) {
+  //base case
   if (n <= 0){
     return output;
   }
@@ -73,7 +86,6 @@ var range = function(x, y, output = []) {
       output.push(x - 1);
     return range(x - 1, y, output);
     }
-    return range(x + 1, y, output);
 };
 
 // 7. Compute the exponent of a number.
