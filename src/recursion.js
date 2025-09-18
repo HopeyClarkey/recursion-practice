@@ -56,12 +56,12 @@ var isEven = function(n) {
 // sumBelow(10); // 45
 // sumBelow(7); // 21
 var sumBelow = function(n, output = 0) {
-  //base case
-  if(n < 0){
+  //base cases
+  if(n < 0){  //handle negative numbers by putting recursion 'opposite arguments'
   output += n + 1;
     return sumBelow(n + 1, output);
   }
-  if (n <= 0){
+  if (n <= 0){  //handle when reach 'end' of integers
     return output;
   }
   //what do we want to do to N? take all the numbers from 1 to N and add them together
