@@ -139,7 +139,17 @@ var reverse = function(string, output = '') {
 }
 
 // 10. Write a function that determines if a string is a palindrome.
-var palindrome = function(string) {
+var palindrome = function(string, output = '') {
+//base case return if true to stop the loop
+if (string === ''){
+  return true;
+}
+let newString = string.split('');
+if (newString.pop() !== newString.shift()){
+  return false;
+}
+//recursion
+  return palindrome(newString);
 };
 
 // 11. Write a function that returns the remainder of x divided by y without using the
@@ -154,7 +164,13 @@ var modulo = function(x, y) {
 // 12. Write a function that multiplies two numbers without using the * operator  or
 // JavaScript's Math object.
 // ATTENTION DO NOT LEAVE COMMENTS IN THIS FUNCTION. The test is looking for any ('/').
-var multiply = function(x, y) {
+var multiply = function(x,y, counter = 0) {
+  if (counter === y){
+    return x;
+  }
+  counter +=  1;
+  x += x;
+  return multiply(x);
 };
 
 // 13. Write a function that divides two numbers without using the / operator  or
