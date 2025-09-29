@@ -190,11 +190,26 @@ var gcd = function(x, y) {
 // compareStr('', '') // true
 // compareStr('tomato', 'tomato') // true
 var compareStr = function(str1, str2) {
+// declare function compareStr that compares 2 strings
+    if (str1 === '' && str2 === ''){
+//if the strings are empty, then they match and you can return true
+    return true; }
+    if (str1[0] !== str2[0]){
+//if the first character of both strings does not match, you can return false
+      return false;} 
+    return compareStr(str1.slice(1), str2.slice(1));
+// call the function again and slice off the first element of the string to keep comparing
 };
 
 // 16. Write a function that accepts a string and creates an array where each letter
 // occupies an index of the array.
 var createArray = function(str){
+  const stArr = [];
+  if (str === ''){
+    return stArr;
+    console.log(stArr)
+  } stArr.push(str[0]);
+  return createArray(str.slice(1));
 };
 
 // 17. Reverse the order of an array
