@@ -163,13 +163,11 @@ var modulo = function(x, y) {
 // 12. Write a function that multiplies two numbers without using the * operator  or
 // JavaScript's Math object.
 // ATTENTION DO NOT LEAVE COMMENTS IN THIS FUNCTION. The test is looking for any ('/').
-var multiply = function(x,y, counter = 0) {
+var multiply = function(x, y, counter = 0) {
   if (counter === y){
     return x;
   }
-  counter +=  1;
-  x += x;
-  return multiply(x);
+ return multiply(x + x, y, counter + 1);
 };
 
 // 13. Write a function that divides two numbers without using the / operator  or
