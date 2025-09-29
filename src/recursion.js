@@ -204,18 +204,26 @@ var compareStr = function(str1, str2) {
 // 16. Write a function that accepts a string and creates an array where each letter
 // occupies an index of the array.
 var createArray = function(str, stArr = []){
+//create createArray function with the parameters string and an empty storage array
   if (str === ''){
+// if the string is empty, return the empty array
     return stArr;
   } stArr.push(str[0]);
+// if there is value in the string, push the index 0 of the string to the storage array
   return createArray(str.slice(1), stArr);
+//slice off that pushed value, and call the function again on the shortrt string and array
 };
 
 // 17. Reverse the order of an array
 var reverseArr = function (array, stArr = []) {
+// create a function that takes in an array and a empty storage array
   if (array.length === 0){
+// if the array has no items, return the empty storage array
     return stArr;
   } stArr.push(array[array.length-1]);
+//if the array has items, push the last value to the storage array
   array.pop();
+// pop off that pushed value and call the function again
   return reverseArr(array, stArr);
 };
 
@@ -223,10 +231,14 @@ var reverseArr = function (array, stArr = []) {
 // buildList(0,5) // [0,0,0,0,0]
 // buildList(7,3) // [7,7,7]
 var buildList = function(value, length, newList = []) {
+//create buildlist, a function that takes in a value, a length, and default param blank array
   if (newList.length === length){
+//if the array length equals the length, return the array
     return newList;
   } newList.push(value);
+// if not, push the value to the new array
   return buildList(value, length, newList)
+// call the function again on the value and the new list
 };
 
 // 19. Count the occurence of a value inside a list.
