@@ -344,7 +344,10 @@ var flatten = function(arrays) {
 
 // 30. Given a string, return an object containing tallies of each letter.
 // letterTally('potato'); // {'p':1, 'o':2, 't':2, 'a':1}
-var letterTally = function(str, obj) {
+var letterTally = function(str, obj ={}) {
+// function takes string and has a default empty object
+
+
 };
 
 // 31. Eliminate consecutive duplicates in a list.  If the list contains repeated
@@ -364,7 +367,15 @@ var augmentElements = function(array, aug) {
 // 33. Reduce a series of zeroes to a single 0.
 // minimizeZeroes([2,0,0,0,1,4]) // [2,0,1,4]
 // minimizeZeroes([2,0,0,0,1,0,0,4]) // [2,0,1,0,4]
-var minimizeZeroes = function(array) {
+var minimizeZeroes = function(array, acc = []) {
+  if (array.length === 0){
+    return acc;
+  } if (array[0] === 0 && acc[acc.length -1] !== 0){
+    acc.push(array[0]);
+  } else if (array[0] !== 0){
+    acc.push(array[0]);
+  }
+    return minimizeZeroes(array.slice(1), acc);
 };
 
 // 34. Alternate the numbers in an array between positive and negative regardless of
