@@ -245,7 +245,7 @@ var buildList = function(value, length, newList = []) {
 // countOccurrence([2,7,4,4,1,4], 4) // 3
 // countOccurrence([2,'banana',4,4,1,'banana'], 'banana') // 2
 var countOccurrence = function(array, value, stArr = []) {
-// declare a variable that takes in an array, a value to check for, and default storage array
+// declare a function that takes in an array, a value to check for, and default storage array
   if (array.length === 0){
 //if the array is empty, return the storage array's length
     return stArr.length;
@@ -261,7 +261,14 @@ var countOccurrence = function(array, value, stArr = []) {
 // 20. Write a recursive version of map.
 // rMap([1,2,3], timesTwo); // [2,4,6]
 var rMap = function(array, callback, output=[]) {
-  
+// create function rMap that takes in an array, a function, and has a default param of empty array
+  if (array.length === 0){
+//if the array is empty, return the output array
+      return output;
+    } output.push(callback(array[0]));
+// push the result of calling the callback into the output array
+  return rMap(array.slice(1), callback, output)
+// call the function again, with the first element sliced off, the callback, and the output array
 };
 
 // 21. Write a function that counts the number of times a key occurs in an object.
