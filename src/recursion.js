@@ -246,17 +246,17 @@ var buildList = function(value, length, newList = []) {
 // countOccurrence([2,'banana',4,4,1,'banana'], 'banana') // 2
 var countOccurrence = function(array, value, stArr = []) {
 // declare a variable that takes in an array, a value to check for, and default storage array
-  if (array = []){
+  if (array.length === 0){
+//if the array is empty, return the storage array's length
     return stArr.length;
-//base case ignore for now
-  } if (array[array.length-1] === value){
+  } if (array[0] === value){
+// if the first item in the array is the same as the value, push to storage array
     stArr.push(value);
-    array.pop();
-  }
-  return countOccurrence(array, value, stArr);
+  } 
+// call the function again with the first element sliced off, the value, and the storage array
+  return countOccurrence(array.slice(1), value, stArr);
 };
 
-console.log(countOccurrence(['t','h','i','s', ,'i','s',' ','a', ,'s','t','r','i','n','g'], 't'));
 
 // 20. Write a recursive version of map.
 // rMap([1,2,3], timesTwo); // [2,4,6]
