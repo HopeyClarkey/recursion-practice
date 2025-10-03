@@ -304,6 +304,17 @@ var fibonacci = function(n) {
 // nthFibo(7); // 13
 // nthFibo(3); // 2
 var nthFibo = function(n) {
+//declare nthFibo, which is a function that takes in a number, n
+  if (n < 0){
+// if n is less than 0, return null
+    return null;
+  }
+// if n is less than or equal to 1, return n
+  if (n <= 1){
+    return n;
+  }
+// call the function again on n -1 + n -2
+  return nthFibo(n - 1) + nthFibo(n -2)
 };
 
 // 26. Given an array of words, return a new array containing each word capitalized.
