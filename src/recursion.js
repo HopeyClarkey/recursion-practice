@@ -346,6 +346,9 @@ var flatten = function(arrays) {
 // letterTally('potato'); // {'p':1, 'o':2, 't':2, 'a':1}
 var letterTally = function(str, obj ={}) {
 // function takes string and has a default empty object
+//need to loop through string and create a property for each unique entry in the string. 
+//then count the amount of times the letter appears that matches the property.
+// ??????????
 
 
 };
@@ -427,7 +430,7 @@ var alternateSign = function(array, output = []) {
 // Assume all numbers are single digits (less than 10).
 // numToText("I have 5 dogs and 6 ponies"); // "I have five dogs and six ponies"
 var numToText = function(str, output = '') {
-  var wrds = ['', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine'];
+  var wrds = ['', 'zero', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine'];
 
 
   return numToText(str.slice(1), output);
