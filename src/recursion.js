@@ -386,20 +386,41 @@ var minimizeZeroes = function(array, acc = []) {
 var alternateSign = function(array, output = []) {
 //declare alternateSign variable to be a function that takes in an array and has an
 // output that will be an array.
-  if (array.length === 1){
-//base cases, how to finalize the output
-    if (array[0] > 0){
-      output.push(array[0]);
-  } if (array[0] < 0){
-      output.push(array[0] * -1);
-  } return output;
-} if (array.length === 0){
-    return output;
-} 
+
+//  base cases, how to finalize the output
+  if (array.length === 0){
+//  if the array is empty,
+        return output;
+//  return the empty output array.
+
+  } if (array.length === 1){
+// if the array has only 1 entry:
+
+      if (array[0] > 0){
+// check to see if that entry is a positive number
+        output.push(array[0]); 
+//  push that positive number to the output
+        return output;
+//  return the output
+
+  }   if (array[0] < 0){
+// check to see if the entry is a negative number
+        output.push(array[0] * -1);
+//push the entry reversed to positive to the output
+        return output;
+//return the output.
+  } if (array[0] === 0){
+//oh god do something idk what
+  }
+}
+//once all of those base cases are done,
+
+//gosh I have to do something with the seros here again.
   output.push(array[array.length - 1] * -1);
+//take the last entry in the string  and revese the sign
   array.pop();
 // recursion, how to work backwards through the array? 
-  alternateSign(array, output);
+  return alternateSign(array, output);
 };
 
 // 35. Given a string, return a string with digits converted to their word equivalent.
