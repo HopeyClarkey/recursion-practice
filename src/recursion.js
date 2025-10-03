@@ -382,7 +382,24 @@ var minimizeZeroes = function(array, acc = []) {
 // their original sign.  The first number in the index always needs to be positive.
 // alternateSign([2,7,8,3,1,4]) // [2,-7,8,-3,1,-4]
 // alternateSign([-2,-7,8,3,-1,4]) // [2,-7,8,-3,1,-4]
-var alternateSign = function(array) {
+
+var alternateSign = function(array, output = []) {
+//declare alternateSign variable to be a function that takes in an array and has an
+// output that will be an array.
+  if (array.length === 1){
+//base cases, how to finalize the output
+    if (array[0] > 0){
+      output.push(array[0]);
+  } if (array[0] < 0){
+      output.push(array[0] * -1);
+  } return output;
+} if (array.length === 0){
+    return output;
+} 
+  output.push(array[array.length - 1] * -1);
+  array.pop();
+// recursion, how to work backwards through the array? 
+  alternateSign(array, output);
 };
 
 // 35. Given a string, return a string with digits converted to their word equivalent.
