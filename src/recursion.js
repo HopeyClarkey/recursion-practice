@@ -431,8 +431,8 @@ var alternateSign = function(array, output = []) {
 // numToText("I have 5 dogs and 6 ponies"); // "I have five dogs and six ponies"
 var numToText = function(str, output = '') {
   var wrds = ['', 'zero', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine'];
-
-
+  return output;
+//this is just to stop looping around
   return numToText(str.slice(1), output);
 };
 
