@@ -400,42 +400,48 @@ var minimizeZeroes = function(array, acc = []) {
 var alternateSign = function(array, output = []) {
 //declare alternateSign variable to be a function that takes in an array and has an
 // output that will be an array.
+//  base cases, how to finalize the output:
 
-//  base cases, how to finalize the output
   if (array.length === 0){
-//  if the array is empty,
-        return output;
-//  return the empty output array.
+// if there is no more array to push
+   return output;
+// return the output.
 
-  } if (array.length === 1){
-// if the array has only 1 entry:
+//how to deal with odd-number of array entries:
+  } if(array.length === 1 && array[0] > 0){
+    output.push(array[0]);
+    return output;
+//if the last entry is positive, push it
+  } if (array.length === 1 && array[0] < 0){
+    output.push(array[0] * -1);
+    return output;
+//if the last entry is negative, reverse and push it.
 
-      if (array[0] > 0){
-// check to see if that entry is a positive number
-        output.push(array[0]); 
-//  push that positive number to the output
-        return output;
-//  return the output
+//recursion stuff, 2 peices at time:
+// if the first is negative and the second is positive,
+  } if(array[0] < 0 && array[1] > 0){
+// reverse and push to output
+    output.push(array[0] * -1, array[1] * - 1);
 
-  }   if (array[0] < 0){
-// check to see if the entry is a negative number
-        output.push(array[0] * -1);
-//push the entry reversed to positive to the output
-        return output;
-//return the output.
-  } if (array[0] === 0){
-//oh god do something idk what
+// if the first is positive and the second is positive
+  } if(array[0] > 0 && array[1] > 0){
+// push the first and reverse and push the second
+    output.push(array[0], array[1] * - 1);
+
+// if the first is positive and the second is negative
+  } if(array[0] > 0 && array[1] < 0){
+//no reverse needed, push those 
+    output.push(array[0], array[1]);
+
+//if the first is negative and the second is negative
+  } if(array[0] < 0 && array[1] < 0){
+//reverse the first and push it and the second
+    output.push(array[0] * - 1, array[1]);
   }
-}
-//once all of those base cases are done,
-
-//gosh I have to do something with the seros here again.
-  output.push(array[array.length - 1] * -1);
-//take the last entry in the string  and revese the sign
-  array.pop();
-// recursion, how to work backwards through the array? 
-  return alternateSign(array, output);
+//call the function again with two items sliced off
+  return alternateSign(array.slice(0, 1), output);;
 };
+
 
 // 35. Given a string, return a string with digits converted to their word equivalent.
 // Assume all numbers are single digits (less than 10).
