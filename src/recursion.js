@@ -399,9 +399,8 @@ var minimizeZeroes = function(array, acc = []) {
 
 var alternateSign = function(array, output = []) {
 //declare alternateSign variable to be a function that takes in an array and has an
-// output that will be an array.
+// output that will be an array
 //  base cases, how to finalize the output:
-
   if (array.length === 0){
 // if there is no more array to push
    return output;
@@ -439,7 +438,7 @@ var alternateSign = function(array, output = []) {
     output.push(array[0] * - 1, array[1]);
   }
 //call the function again with two items sliced off
-  return alternateSign(array.slice(0, 1), output);;
+  return alternateSign(array.slice(2), output);;
 };
 
 
