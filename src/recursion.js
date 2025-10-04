@@ -140,6 +140,8 @@ var reverse = function(string, output = '') {
 
 // 10. Write a function that determines if a string is a palindrome.
 var palindrome = function(string) {
+//remove weird chars:
+  string = string.toLowerCase().replace(/[^a-z0-9]/g, '');
 //base case return if true to stop the loop
 if (string.length <= 1){
   return true;
