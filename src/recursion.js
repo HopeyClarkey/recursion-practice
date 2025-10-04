@@ -362,8 +362,12 @@ var letterTally = function(str, obj ={}) {
 //need to loop through string and create a property for each unique entry in the string. 
 //then count the amount of times the letter appears that matches the property.
 // ??????????
-
-
+  if (str.length === 0){
+    return obj;
+  } 
+  obj[str[0]] += 1;
+  
+  return letterTally(str.slice(1), obj)
 };
 
 // 31. Eliminate consecutive duplicates in a list.  If the list contains repeated
@@ -459,15 +463,25 @@ var alternateSign = function(array, output = []) {
 // Assume all numbers are single digits (less than 10).
 // numToText("I have 5 dogs and 6 ponies"); // "I have five dogs and six ponies"
 var numToText = function(string, output = []) {
+//  you need an array where the indexs correspond to the same word value
   var wrds = ['zero', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine'];
+//  because we are working with some arrays, this just splits the string once
     if(typeof string === 'string') {
     string.split(' ');
+
+//  if the string((array)) has been looped through and equals 0
   } if (string.length === 0){
+//  join the array back into string and return output
       return output.join('');
+
   } if (/^[0-9]$/.test(string[0])){
+//  test with regex to see if the current word is a number
       output.push(wrds[Number(string[0])]);
-  } else {
+// if so, push to output
+  } else { 
+// if not, 
       output.push(string[0]);
+//call the function back with a sliced string and the output
   } return numToText(string.slice(1), output); 
 };
 
