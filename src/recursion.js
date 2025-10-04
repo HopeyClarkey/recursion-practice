@@ -378,9 +378,9 @@ var compress = function(list, output = []) {
     output.push(list[0]);
 //recall the function on the new list
     return compress(list.slice(1), output);
-  } if (list[0] !== output[output.length]){
+  } if (list[0] !== output[output.length -1]){
     output.push(list[0]);
-  } return compress(list.slice(1));
+  } return compress(list.slice(1), output);
 };
 
 // 32. Augment every element in a list with a new value where each element is an array
